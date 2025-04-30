@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Template Areas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fefefe;
+      color: #333;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "contenido2"
+        "contenido3"
+        "aside"
+        "footer";
+      gap: 10px;
+      padding: 10px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .grid-container > * {
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .grid-container > *:hover {
+      transform: translateY(-3px);
+    }
+
+    header   { grid-area: header; background: #ed7b83; color: white; }
+    nav      { grid-area: nav; background: #ec8a90; color: white; }
+    main     { grid-area: main; background: #eba2a4; }
+    .c2      { grid-area: contenido2; background: #f0b9bb; }
+    .c3      { grid-area: contenido3; background: #f0b9bb; }
+    aside    { grid-area: aside; background: #e6d1ca; }
+    footer   { grid-area: footer; background: #eee9c7; }
+
+    @media (min-width: 720px) {
+      .grid-container {
+        grid-template-areas:
+          "header header header"
+          "nav nav nav"
+          "main main aside"
+          "contenido2 contenido3 aside"
+          "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <header><h1>Header</h1></header>
+    <nav><strong>Nav</strong></nav>
+    <main><p>Contenido principal</p></main>
+    <div class="c2"><p>Contenido 2</p></div>
+    <div class="c3"><p>Contenido 3</p></div>
+    <aside><p>Aside</p></aside>
+    <footer><p>Footer</p></footer>
+  </div>
+</body>
+</html>
